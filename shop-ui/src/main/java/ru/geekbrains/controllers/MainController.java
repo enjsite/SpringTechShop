@@ -19,7 +19,7 @@ public class MainController {
 
     @RequestMapping({"/", "/index", "/products"})
     public String indexPage(Model model) {
-        model.addAttribute("products", productService.findAllAndSplitProductsBy(3));
+        model.addAttribute("products", productService.findAll());
         return "shop";
     }
 
