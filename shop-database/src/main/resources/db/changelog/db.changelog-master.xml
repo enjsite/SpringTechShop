@@ -10,19 +10,19 @@
         <runningAs username="mysql"/>
     </preConditions>
 
-    <changeSet author="aleks_ush" id="0">
+    <changeSet author="natalia_episheva" id="0">
         <tagDatabase tag="db_init"/>
     </changeSet>
 
     <include file="v-0.1/db.changelog-v.1.0.xml" relativeToChangelogFile="true"/>
 
-    <changeSet author="aleks_ush" id="5">
+    <changeSet author="natalia_episheva" id="5">
         <tagDatabase tag="v.1.0"/>
     </changeSet>
 
     <include file="v-0.2/db.changelog-v.2.0.xml" relativeToChangelogFile="true"/>
 
-    <changeSet author="aleks_ush" id="6">
+    <changeSet author="natalia_episheva" id="6">
         <tagDatabase tag="v.2.0"/>
     </changeSet>
 
