@@ -90,6 +90,13 @@
 								<div class="product_content">
 									<div class="product_price" th:text="${prod.price}">$225</div>
 									<div class="product_name"><div><a href="#" tabindex="0" th:text="${prod.name}">Philips BT6900A</a></div></div>
+									<h5>
+										<form th:action="@{/cart}" method="post">
+											<input type="hidden" name="qty" value="1"/>
+											<input type="hidden" name="productId" th:value="${prod.id}">
+											<button class="shopBtn" type="submit" title="add to cart"> Add to cart </button>
+										</form>
+									</h5>
 								</div>
 								<div class="product_fav"><i class="fas fa-heart"></i></div>
 								<ul class="product_marks">
@@ -207,8 +214,7 @@
 	</div>
 </div>
 
-<div th:replace="fragments/footer-shop :: dependencies">
-</div>
+<script th:replace="fragments/footer-shop :: scripts"></script>
 
 </body>
 
