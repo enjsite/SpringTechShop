@@ -1,0 +1,100 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="aleks_ush (generated)" id="1574372675400-5">
+        <createTable tableName="brands">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="brandsPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-6">
+        <createTable tableName="categories">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="categoriesPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-7">
+        <createTable tableName="pictures">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="picturesPK"/>
+            </column>
+            <column name="content_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="picture_data_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-8">
+        <createTable tableName="pictures_data">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pictures_dataPK"/>
+            </column>
+            <column name="data" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-9">
+        <createTable tableName="products">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="productsPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(19, 2)"/>
+            <column name="brand_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-10">
+        <createTable tableName="products_pictures">
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="picture_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-11">
+        <addUniqueConstraint columnNames="name" constraintName="UC_BRANDSNAME_COL" tableName="brands"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-12">
+        <addUniqueConstraint columnNames="name" constraintName="UC_CATEGORIESNAME_COL" tableName="categories"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-13">
+        <addUniqueConstraint columnNames="picture_data_id" constraintName="UK_ehsu2tyinopypjox1ijxt3g3c" tableName="pictures"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-14">
+        <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="products" constraintName="FKa3a4mpsfdf4d2y6r8ra3sc8mv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="brands" validate="true"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-15">
+        <addForeignKeyConstraint baseColumnNames="picture_data_id" baseTableName="pictures" constraintName="FKe9cv52k04xoy6cj8xy308gnw3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pictures_data" validate="true"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-16">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="products_pictures" constraintName="FKh3amnci4cl7xcl1al140xw79e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="products" validate="true"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-17">
+        <addForeignKeyConstraint baseColumnNames="picture_id" baseTableName="products_pictures" constraintName="FKloucf8ggy74nmdej2jmvttvi4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pictures" validate="true"/>
+    </changeSet>
+    <changeSet author="aleks_ush (generated)" id="1574372675400-18">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="products" constraintName="FKog2rp4qthbtt2lfyhfo32lsw9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="categories" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
