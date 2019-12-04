@@ -71,11 +71,11 @@
 										</div>
 										<div class="cart_item_price cart_info_col">
 											<div class="cart_item_title">Price</div>
-											<div class="cart_item_text" th:text="${lineItem.productRepr.price}">$2000</div>
+											<div class="cart_item_text">$<span th:text="${lineItem.productRepr.price}" th:remove="tag">$2000</span></div>
 										</div>
 										<div class="cart_item_total cart_info_col">
 											<div class="cart_item_title">Total</div>
-											<div class="cart_item_text" th:text="${lineItem.total}">$2000</div>
+											<div class="cart_item_text">$<span th:text="${lineItem.total}" th:remove="tag">$2000</span></div>
 										</div>
 									</div>
 								</li>
@@ -86,7 +86,7 @@
 						<div class="order_total">
 							<div class="order_total_content text-md-right">
 								<div class="order_total_title">Order Total:</div>
-								<div class="order_total_amount" th:text="${subTotal}">$2000</div>
+								<div class="order_total_amount">$<span th:text="${subTotal}" th:remove="tag">$2000</span></div>
 							</div>
 						</div>
 
