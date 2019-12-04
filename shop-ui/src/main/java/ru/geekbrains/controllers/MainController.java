@@ -23,9 +23,9 @@ public class MainController {
         return "shop";
     }
 
-    @RequestMapping("/product_details/{id}")
+    @RequestMapping("/product/{id}/")
     public String productDetailPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("product", productService.findById(id).orElseThrow(IllegalArgumentException::new));
-        return "product_details";
+        return "product";
     }
 }
