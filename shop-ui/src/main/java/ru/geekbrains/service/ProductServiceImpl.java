@@ -25,6 +25,16 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findById(id).map(ProductRepr::new);
     }
 
+    @Override
+    public List<ProductRepr> findAll() {
+        List<ProductRepr> result = new ArrayList<>();
+
+        for (Product product : productRepository.findAll()) {
+            result.add(new ProductRepr(product));
+        }
+        return result;
+    }
+
     public List<List<ProductRepr>> findAllAndSplitProductsBy(int groupSize) {
         List<List<ProductRepr>> result = new ArrayList<>();
         List<ProductRepr> subList = new ArrayList<>();
