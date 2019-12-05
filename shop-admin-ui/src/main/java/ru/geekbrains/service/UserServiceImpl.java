@@ -3,6 +3,7 @@ package ru.geekbrains.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.geekbrains.aspect.TrackTime;
 import ru.geekbrains.controllers.repr.UserRepr;
 import ru.geekbrains.persist.model.User;
 import ru.geekbrains.persist.repo.UserRepository;
@@ -34,6 +35,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @TrackTime
     @Override
     public List<UserRepr> findAll() {
         return userRepository.findAll().stream()
