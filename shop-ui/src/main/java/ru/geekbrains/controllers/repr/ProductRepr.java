@@ -3,11 +3,12 @@ package ru.geekbrains.controllers.repr;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.Product;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductRepr {
+public class ProductRepr implements Serializable {
 
     private Long id;
 
@@ -20,6 +21,9 @@ public class ProductRepr {
     private String brandName;
 
     private List<Long> pictureIds;
+
+    public ProductRepr() {
+    }
 
     public ProductRepr(Product product) {
         this.id = product.getId();

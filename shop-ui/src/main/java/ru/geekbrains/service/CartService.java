@@ -3,10 +3,11 @@ package ru.geekbrains.service;
 import ru.geekbrains.service.model.LineItem;
 import ru.geekbrains.controllers.repr.ProductRepr;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-public interface CartService {
+public interface CartService extends Serializable {
 
     void addProductQty(ProductRepr productRepr, String color, String material, int qty);
 
