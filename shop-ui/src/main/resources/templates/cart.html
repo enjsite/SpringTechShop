@@ -12,6 +12,8 @@
 <link rel="stylesheet" type="text/css" href="styles/cart_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
 
+	<link th:href="@{/chat.css}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -104,6 +106,8 @@
 	<footer class="footer" th:replace="fragments/footer-shop :: footer">
 	</footer>
 
+	<div th:include="fragments/chat :: chat"/>
+
 	<!-- Copyright -->
 
 	<div class="copyright" th:replace="fragments/footer-shop :: copyright">
@@ -120,6 +124,11 @@
 <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="js/cart_custom.js"></script>
+
+<script th:src="@{/webjars/sockjs-client/1.0.2/sockjs.min.js}"></script>
+<script th:src="@{/webjars/stomp-websocket/2.3.3/stomp.min.js}"></script>
+
+<script th:src="@{/assets/js/chat.js}"></script>
 </body>
 
 </html>
