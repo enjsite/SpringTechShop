@@ -1,0 +1,18 @@
+server:
+  port : 8085
+
+zuul:
+  routes:
+    shop-ui:
+      path: /**
+      sensitiveHeaders:
+      serviceId: shop-ui-service
+    shop-admin:
+      path: /admin/**
+      sensitiveHeaders:
+      url: http://localhost:8081
+
+shop-ui-service:
+  ribbon:
+    listOfServers: http://localhost:8082,http://localhost:8087
+
