@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import ru.geekbrains.aspect.TrackTime;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.repo.PictureRepository;
 
@@ -23,6 +24,8 @@ public class PictureController {
         this.pictureRepository = pictureRepository;
     }
 
+
+    @TrackTime
     @GetMapping("/picture/{pictureId}")
     public void adminDownloadProductPicture(@PathVariable("pictureId") Long pictureId,
                                             HttpServletResponse response) throws IOException {

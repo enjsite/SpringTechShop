@@ -88,8 +88,8 @@
 								<div class="product_border"></div>
 								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img th:src="@{/picture/{id}(id=${prod.pictureIds[0]})}" alt=""></div>
 								<div class="product_content">
-									<div class="product_price" th:text="${prod.price}">$225</div>
-									<div class="product_name"><div><a href="#" tabindex="0" th:text="${prod.name}">Philips BT6900A</a></div></div>
+									<div class="product_price">$[[${prod.price}]]</div>
+									<div class="product_name"><div><a th:href="@{/product/{id}/(id=${prod.id})}" tabindex="0" th:text="${prod.name}">Philips BT6900A</a></div></div>
 									<h5>
 										<form th:action="@{/cart}" method="post">
 											<input type="hidden" name="qty" value="1"/>
@@ -153,8 +153,8 @@
 								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
 									<div class="viewed_image"><img th:src="@{/picture/{id}(id=${prod.pictureIds[0]})}" alt=""></div>
 									<div class="viewed_content text-center">
-										<div class="viewed_price" th:text="${prod.price}">$225</div>
-										<div class="viewed_name"><a href="#" th:text="${prod.name}">Beoplay H7</a></div>
+										<div class="viewed_price">$[[${prod.price}]]</div>
+										<div class="viewed_name"><a th:href="@{/product/{id}/(id=${prod.id})}" th:text="${prod.name}">Beoplay H7</a></div>
 									</div>
 									<ul class="item_marks">
 										<li class="item_mark item_discount">-25%</li>
@@ -207,6 +207,8 @@
 	<!-- Footer -->
 	<footer class="footer" th:replace="fragments/footer-shop :: footer">
 	</footer>
+
+	<div th:include="fragments/chat :: chat"/>
 
 	<!-- Copyright -->
 

@@ -1,6 +1,9 @@
 package ru.geekbrains.service;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.controllers.repr.ProductRepr;
 import ru.geekbrains.persist.model.Product;
@@ -11,12 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ProductServiceImpl implements ProductService {
 
-    private final ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
