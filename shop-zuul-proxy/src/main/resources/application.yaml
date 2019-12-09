@@ -5,6 +5,7 @@ zuul:
   routes:
     shop-ui:
       path: /**
+      sensitiveHeaders:
       serviceId: shop-ui-service
     shop-admin:
       path: /admin/**
