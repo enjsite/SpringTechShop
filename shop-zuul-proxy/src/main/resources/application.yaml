@@ -1,3 +1,6 @@
+server:
+  port : 8085
+
 zuul:
   routes:
     shop-ui:
