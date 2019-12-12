@@ -1,17 +1,30 @@
 server:
   port : 8085
 
+spring:
+  application:
+    name: shop-zuul-proxy
+
 zuul:
+  ignoredServices: "*"
   routes:
     shop-ui:
       path: /**
       sensitiveHeaders:
-      serviceId: shop-ui-service
+      serviceId: SHOP-UI-SERVICE
     shop-admin:
       path: /admin/**
       sensitiveHeaders:
-      url: http://localhost:8081
+      serviceId: SHOP-ADMIN-UI-SERVICE
 
-shop-ui-service:
-  ribbon:
-    listOfServers: http://localhost:8082,http://localhost:8087
+#shop-ui-service:
+#  ribbon:
+#    listOfServers: http://localhost:8082,http://localhost:8087
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
