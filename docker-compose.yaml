@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: geek_jewellery_shop_db
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8087:8080
+
+  shop-admin-ui:
+    image: registry.heroku.com/shop-admin-ui/web:latest
+    restart: always
+    environment:
+      JDBC_DATABASE_URL: jdbc:postgresql://db:5432/geek_jewellery_shop_db
+      JDBC_DATABASE_USERNAME: postgres
+      JDBC_DATABASE_PASSWORD: root
+      JDBC_DRIVER_CLASS: org.postgresql.Driver
+      HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      EUREKA_ENABLED: "FALSE"
+    ports:
+      - 8088:8081
+    depends_on:
+      - db
+      - adminer

@@ -1,5 +1,7 @@
 package ru.geekbrains.persist.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,7 +16,8 @@ public class PictureData implements Serializable {
     private Long id;
 
     @Lob
-    @Column(name = "data", nullable = false)
+    @Type(type="org.hibernate.type.BinaryType") // для правильной работы PostgreSQL
+    @Column(name = "data", nullable = false, length = 33554430) // для правильной hibernate-валидации в MySQL
     private byte[] data;
 
     public PictureData() {

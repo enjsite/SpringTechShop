@@ -74,4 +74,15 @@
         <rollback/>
     </changeSet>
 
+    <changeSet author="aleks_ush" id="1574115797537-9">
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 endDelimiter="\nGO"
+                 path="insert-users-data-postgresql.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+        <rollback/>
+    </changeSet>
+
 </databaseChangeLog>

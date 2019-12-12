@@ -7,7 +7,6 @@
 
     <preConditions>
         <dbms type="h2, mysql, postgresql"/>
-        <runningAs username="mysql"/>
     </preConditions>
 
     <changeSet author="natalia_episheva" id="0">
