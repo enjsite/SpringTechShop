@@ -15,4 +15,3 @@ zuul:
 shop-ui-service:
   ribbon:
     listOfServers: http://localhost:8082,http://localhost:8087
-
