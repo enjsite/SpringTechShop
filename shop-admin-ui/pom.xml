@@ -104,7 +104,7 @@
                     <username>enjsite</username>
                     <password>xgCGuef*syH,6ah</password>
                     <googleContainerRegistryEnabled>false</googleContainerRegistryEnabled>
-                    <repository>registry.heroku.com/geek4-${project.artifactId}/web</repository>
+                    <repository>registry.heroku.com/geek7-${project.artifactId}/web</repository>
                     <tag>latest</tag>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

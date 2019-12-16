@@ -16,7 +16,7 @@ services:
       - 8087:8080
 
   shop-admin-ui:
-    image: registry.heroku.com/shop-admin-ui/web:latest
+    image: registry.heroku.com/geek7-shop-admin-ui/web:latest
     restart: always
     environment:
       JDBC_DATABASE_URL: jdbc:postgresql://db:5432/geek_jewellery_shop_db

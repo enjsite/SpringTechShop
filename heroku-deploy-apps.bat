@@ -1,1 +1,1 @@
-heroku container:release web --app=geek4-shop-admin-ui
+heroku container:release web --app=geek7-shop-admin-ui
