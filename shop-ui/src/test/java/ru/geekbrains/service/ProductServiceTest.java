@@ -50,4 +50,22 @@ public class ProductServiceTest {
         assertEquals(4, result.get(1).size());
         assertEquals(2, result.get(2).size());
     }
+
+    @Test
+    public void findAll() {
+        when(productRepository.findAll()).thenReturn(new ArrayList<Product>() {{
+            for (long i=0; i<5; i++) {
+                Product product = new Product();
+                product.setBrand(new Brand());
+                product.setCategory(new Category());
+                product.setPictures(Collections.emptyList());
+                product.setName("Product"+i);
+                product.setId(i);
+                add(product);
+            }
+        }});
+        List<ProductRepr> result = productService.findAll();
+        assertNotNull(result);
+        assertEquals(5, result.size());
+    }
 }
