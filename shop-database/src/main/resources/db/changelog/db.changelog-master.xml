@@ -6,8 +6,16 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <preConditions>
-        <dbms type="h2, mysql, postgresql"/>
-        <runningAs username="mysql"/>
+        <or>
+           <and>
+                <dbms type="mysql, postgresql"/>
+                <runningAs username="mysql"/>
+            </and>
+            <and>
+                <dbms type="h2"/>
+                <runningAs username="sa"/>
+            </and>
+        </or>
     </preConditions>
 
     <changeSet author="natalia_episheva" id="0">
